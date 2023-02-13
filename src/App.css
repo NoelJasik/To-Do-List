@@ -2,30 +2,40 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+*
+{
+  padding: 0;
+  margin: 0;
 }
 
-.heart {
-  color: #ff0000;
+.priority-1
+{
+  background-color: #AFA;
 }
 
-.small {
-  font-size: 0.75rem;
+.priority-2
+{
+  background-color: #FFA;
+}
+
+.priority-3
+{
+  background-color: #FAA;
+}
+
+h1 {
+  filter: invert(1);
+  mix-blend-mode: difference;
 }
