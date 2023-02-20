@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
 
-  // name priority done
+  // [id, name, priority, isDone]
   const [tasks, setTasks] = useState([])
   const [taskName, setTaskName] = useState("")
   const [bgColor, setColor] = useState("#8C9EFF")
+
+  // Task list managment
 
   const createTask = (_name) => {
     let temp = [...tasks];
@@ -15,6 +17,22 @@ function App() {
     setTasks(temp)
     console.log(tasks)
   }
+
+  const getTasks = () =>
+  {
+    let taskToJson = JSON.parse(localStorage.getItem("tasks"));
+    console.log(taskToJson);
+    setTasks(taskToJson);
+  }
+
+  const saveTasks = () =>
+   {
+    let tasksToString = JSON.stringify(tasks); 
+    localStorage.setItem("tasks", tasksToString);
+    console.log(localStorage.getItem("tasks"))
+   }
+
+  // Task component
 
   function TaskElement(props) {
 
@@ -50,6 +68,14 @@ function App() {
         </div>
     )
   }
+
+  // Use effect
+
+  useEffect(() => {getTasks()}, [])
+
+  useEffect(() => {setTimeout(() => saveTasks(), 10)}, [tasks])
+
+  // Main site structure
 
   return (
     <main style={{"backgroundColor":bgColor}}>
