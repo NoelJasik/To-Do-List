@@ -6,7 +6,7 @@ function App() {
   // [id, name, priority, isDone]
   const [tasks, setTasks] = useState([])
   const [taskName, setTaskName] = useState("")
-  const [bgColor, setColor] = useState("#8C9EFF")
+  const [bgColor, setColor] = useState("#552777")
 
   // Task list managment
 
