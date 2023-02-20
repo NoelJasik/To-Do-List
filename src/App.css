@@ -51,7 +51,22 @@ button {
   border-radius: 0.5em;
   margin:1em;
   padding:0.5em;
+  transition: 0.25s;
 }
+
+button:hover {
+  scale: 1.05;
+  transition: 0.1s;
+  box-shadow: 0px 0px 10px 0px white;
+}
+
+button:active {
+  scale: 1.15;
+  transition: 0.05s;
+  box-shadow: 0px 0px 15px 0px white;
+  filter: saturate(1.2);
+}
+
 
 .btn-holder button {
   background-color: rgba(0, 0, 0, 0.322);
@@ -60,7 +75,7 @@ button {
   width: 2em;
   height: 2em;
   text-align: center;
-  margin:0.1em;
+  margin:0.25em;
   padding:0.5em;
   display: flex;
   flex-direction: row;
@@ -80,7 +95,7 @@ button {
 .task-element p {
   color: white;
   font-size: 1.25em;
-  margin:0.1em;
+  margin:0.25em;
   text-align: left;
   width: 100%;
 }
