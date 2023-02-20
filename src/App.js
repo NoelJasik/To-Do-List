@@ -40,20 +40,20 @@ function App() {
     return (
       <div className={'task-element priority-'+props.task[2]} 
       onDoubleClick={() => changeTaskStatus(props.id)} 
-      style={props.task[3] ? {"opacity":"0.75", filter: "grayscale(60%)"} : {"opacity":"1"}}>
-        <p>{props.task[1]}</p>
-        <>
-        <p>Priority:</p>
+      style={props.task[3] ? {"opacity":"0.5", filter: "grayscale(60%)"} : {"opacity":"1"}}>
+        <div className='btn-holder'>
         <button onClick={() => setPriority("1", props.id)}>1</button>
         <button onClick={() => setPriority("2", props.id)}>2</button>
         <button onClick={() => setPriority("3", props.id)}>3</button>
-        </>
+        </div>
+        <p>{props.task[1]}</p>
         </div>
     )
   }
 
   return (
     <main style={{"backgroundColor":bgColor}}>
+      <div className='main-window'>
       <h1>
         To Do
       </h1>
@@ -68,6 +68,7 @@ function App() {
               </>
               ))}
         </div>
+      </div>
       </div>
     </main>
   );
