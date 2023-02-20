@@ -24,17 +24,17 @@ align-content: center;
 
 .priority-1
 {
-  background-color: rgba(22, 119, 22, 0.5)
+  background-color: rgba(22, 119, 22, 0.75)
 }
 
 .priority-2
 {
-  background-color: rgba(221, 190, 16, 0.5);
+  background-color: rgba(221, 190, 16, 0.75);
 }
 
 .priority-3
 {
-  background-color: rgb(182, 38, 38, 0.5);
+  background-color: rgb(182, 38, 38, 0.75);
 }
 
 .main-window {
