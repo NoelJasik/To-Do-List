@@ -15,7 +15,7 @@ function App() {
     let id = tasks.length + 1;
     temp.push([id ,String(_name), "1", false])
     setTasks(temp)
-    console.log(tasks)
+    setTaskName("");
   }
 
   const getTasks = () =>
@@ -39,20 +39,22 @@ function App() {
     const setPriority = (_priority, i) =>
     {
       let temp = [...tasks];
-      console.log(temp[i])
       temp[i] = [tasks[i][0] ,tasks[i][1], String(_priority), tasks[i][3]]
       setTasks(temp)
-      console.log(tasks)
     }
 
     const changeTaskStatus = (i) =>
     {
       let temp = [...tasks];
-      console.log(temp[i])
       temp[i] = [tasks[i][0] ,tasks[i][1], tasks[i][2], !tasks[i][3]]
-      console.log(!tasks[i][3]);
       setTasks(temp)
-      console.log(tasks)
+    }
+
+    const removeTask = (i) =>
+    {  
+      let temp = [...tasks];
+      temp.splice(i, 1);
+      setTasks(temp)
     }
 
     return (
@@ -60,6 +62,7 @@ function App() {
       onDoubleClick={() => changeTaskStatus(props.id)} 
       style={props.task[3] ? {"opacity":"0.5", filter: "grayscale(60%)"} : {"opacity":"1"}}>
         <div className='btn-holder'>
+        <button onClick={() => removeTask(props.id)}>x</button>
         <button onClick={() => setPriority("1", props.id)}>1</button>
         <button onClick={() => setPriority("2", props.id)}>2</button>
         <button onClick={() => setPriority("3", props.id)}>3</button>
@@ -85,8 +88,8 @@ function App() {
       </h1>
       <input type="color" value={bgColor}onChange={(e) => setColor(e.target.value)}></input>
       <div className='main'>
-        <input type="text" onChange={(e) => setTaskName(e.target.value)}></input>
-        <button onClick={() => createTask(taskName)}>Add</button>
+        <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)}></input>
+        <button onClick={() => createTask(taskName)} disabled={taskName == ""}>Add</button>
         <div className='task-list'>
             {tasks.map((task, i) => (
               <>
